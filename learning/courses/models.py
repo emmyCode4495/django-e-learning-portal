@@ -62,7 +62,7 @@ class Content(models.Model):
                                     )})
     object_id = models.PositiveIntegerField()
     item = GenericForeignKey('content_type','object_id')
-    order = OrderField(blank=True, for_fields=['module'])
+    order = OrderField(blank=True, for_fields=['module'],null=True)
 
     class Meta:
         ordering = ['order']
@@ -85,10 +85,10 @@ class Text(ItemBase):
     content = models.TextField()
 
 class File(ItemBase):
-    file = models.FileField(upload_to="files")
+    file = models.FileField(upload_to='files')
 
 class Image(ItemBase):
-    image = models.FileField(upload_to="images")
+    file = models.FileField(upload_to='images')
 
 class Video(ItemBase):
     url = models.URLField()
