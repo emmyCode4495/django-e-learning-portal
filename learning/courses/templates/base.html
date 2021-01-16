@@ -12,8 +12,10 @@
         <a href="/" class="logo">Marvina e-Learning</a>
         <ul class="menu">
             {% if request.user.is_authenticated %}
+            <li style="color: white;">Welcome <b style="color:gray;"><i>{{request.user}}</i></b></li>
             <li><a href="{% url 'logout' %}">Sign out</a></li>
             {% else %}
+            
             <li><a href="{% url 'login' %}">Sign in</a></li>
             {% endif %}
         </ul>

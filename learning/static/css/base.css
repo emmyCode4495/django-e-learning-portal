@@ -33,8 +33,11 @@ h1 {
     padding:10px 20px;
     float:left;
     width:600px;
+    
 }
-
+.overall{
+    margin: 0 20px 10px;
+}
 .module h3 {
     margin:20px 0 0;
     padding:0;
@@ -42,7 +45,7 @@ h1 {
 }
 
 .module p {
-    margin:10px 0 20px;
+    margin:10px 0 30px;
     width:100%;
     float:left;
 }

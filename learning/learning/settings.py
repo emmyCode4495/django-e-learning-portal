@@ -32,13 +32,21 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'courses.apps.CoursesConfig',
+    'students.apps.StudentsConfig',
+    'embed_video',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 ]
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES':[
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -122,3 +130,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [ 
     os.path.join(BASE_DIR, 'static')
     ]
+
+from django.urls import reverse_lazy
+LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
+
+import os
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
